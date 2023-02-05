@@ -1,0 +1,11 @@
+---
+defaultBaseImage: gcr.io/distroless/base:nonroot
+builds:
+  - id: lol
+    main: ./cmd
+    flags:
+      - -buildmode=pie
+    ldflags:
+      - -s
+      - -w
+      - -buildid=none

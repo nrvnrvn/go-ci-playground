@@ -1,0 +1,96 @@
+# Refs:
+# - https://golangci-lint.run/usage/linters/
+# - https://golangci-lint.run/usage/configuration/
+---
+linters:
+  disable-all: true
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - cyclop
+    - dupl
+    - durationcheck
+    - errcheck
+    - errname
+    - errorlint
+    - execinquery
+    - exhaustive
+    - exportloopref
+    - forbidigo
+    - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - goimports
+    - gomnd
+    - gomoddirectives
+    - gomodguard
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - makezero
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - noctx
+    - nolintlint
+    - nonamedreturns
+    - nosprintfhostport
+    - predeclared
+    - promlinter
+    - revive
+    - staticcheck
+    - stylecheck
+    - tenv
+    - testpackage
+    - tparallel
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - usestdlibvars
+    - whitespace
+linters-settings:
+  govet:
+    enable-all: true
+    # Report about shadowed variables.
+    # Default: false
+    check-shadowing: true
+    settings:
+      shadow:
+        # Whether to be strict about shadowing; can be noisy.
+        # Default: false
+        strict: true
+  cyclop:
+    # The maximal code complexity to report.
+    # Default: 10
+    max-complexity: 25
+    # The maximal average package complexity.
+    # If it's higher than 0.0 (float) the check is enabled
+    # Default: 0.0
+    package-average: 10.0
+#output:
+#  sort-results: true
+severity:
+  default-severity: error
+  rules:
+    - linters:
+        - gochecknoglobals
+      severity: info
+issues:
+  max-same-issues: 50
+#  exclude-rules:
+#    - source: "^//\\+kubebuilder"
+#      linters: [ lll ]
+#    - path: "main.go"
+#      linters: [ gochecknoinits ]
+#    - path: "api/v1/redis_types.go"
+#      linters: [ gochecknoinits ]
